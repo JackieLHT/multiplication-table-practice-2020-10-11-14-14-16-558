@@ -14,7 +14,7 @@ public class MultiplicationTableTest {
         int end = 1;
 
         //when
-        String actual = multiplicationTable.create(start, end);
+        String actual = multiplicationTable.createMultiplicationTable(start, end);
 
         //then
         assertNull(actual);
@@ -28,7 +28,7 @@ public class MultiplicationTableTest {
         int end = 1001;
 
         //when
-        String actual = multiplicationTable.create(start, end);
+        String actual = multiplicationTable.createMultiplicationTable(start, end);
 
         //then
         assertNull(actual);
@@ -42,7 +42,7 @@ public class MultiplicationTableTest {
         int end = 2;
 
         //when
-        String actual = multiplicationTable.create(start, end);
+        String actual = multiplicationTable.createMultiplicationTable(start, end);
 
         //then
         assertEquals("2*2=4", actual);
@@ -56,10 +56,18 @@ public class MultiplicationTableTest {
         int end = 5;
 
         //when
-        String actual = multiplicationTable.create(start, end);
+        String actual = multiplicationTable.createMultiplicationTable(start, end);
         String expected = String.format("2*2=4%n2*3=6  3*3=9%n2*4=8  3*4=12  4*4=16%n2*5=10  3*5=15  4*5=20  5*5=25");
 
         //then
         assertEquals(expected, actual);
+    }
+    
+    public static void main(String[] args) {
+    	MultiplicationTableTest test = new MultiplicationTableTest();
+    	test.should_return_null_when_multiply_given_start_number_2_end_number_1();
+    	test.should_return_null_when_multiply_given_start_number_0_end_number_1001();
+    	test.should_return_single_equation_when_multiply_given_start_number_2_end_number_2();
+    	test.should_return_multiply_table_when_multiply_given_start_number_2_end_number_5();
     }
 }
